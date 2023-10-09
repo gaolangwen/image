@@ -1,0 +1,36 @@
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "RET") 'newline-and-indent)
+
+(global-linum-mode t)
+(global-hl-line-mode 1)
+(setq-default cursor-type 'bar)
+(setq-default inhibit-startup-screen t)
+(setq-default c-default-style "bsd")
+(setq-default kill-ring-max 65535)
+(setq-default c-basic-offset 4)
+(setq-default indent-tabs-mode t)
+(setq-default default-tab-width 4)
+(setq-default tab-width 4)
+
+(defun compile-file ()(interactive)(compile (format "g++ %s -o %s -g -lm -Wall -std=c++14 -O2" (buffer-name)(file-name-sans-extension (buffer-name)))))
+(global-set-key [f9] 'compile-file)
+(global-set-key [f10] 'gud-gdb)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(cua-mode t nil (cua-base))
+ '(custom-enabled-themes (quote (deeper-blue)))
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
